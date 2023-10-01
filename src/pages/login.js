@@ -4,7 +4,7 @@ import {AiFillFacebook} from "react-icons/ai";
 import {useNavigate, useLocation} from "react-router-dom"
 import {login} from "firebase.js";
 import {Formik, Form} from "formik";
-import {LoginSchema} from "validation";
+import {LoginSchema} from "../validator/login-schema";
 
 export default function Login() {
 

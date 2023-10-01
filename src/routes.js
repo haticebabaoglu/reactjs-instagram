@@ -1,4 +1,4 @@
-import PrivateRoute from "components/PrivateRoute";
+import PrivateRoute from "./component/PrivateRoute";
 import Home from "pages/home";
 import Login from "pages/login";
 import AuthLayout from "pages/auth";
