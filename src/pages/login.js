@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import Input from "components/Input";
+import Input from "../component/input";
 import {AiFillFacebook} from "react-icons/ai";
 import {useNavigate, useLocation} from "react-router-dom"
 import {login} from "firebase.js";
@@ -36,11 +36,13 @@ export default function Login() {
 	]
 
 	const handleSubmit = async (values, actions) => {
-		await login(values.username, values.password)
-		navigate(location.state?.return_url || '/', {
+		await login(values.username, values.password) //await ifadesi, login fonksiyonunun sonucunu beklemek için kullanılır. Bu, kullanıcının giriş yapmasını beklediğiniz anlamına gelir. Eğer login fonksiyonu başarılı bir şekilde giriş yaparsa, devam edecektir.
+		navigate(location.state?.return_url || '/', { 
 			replace: true
 		})
 	}
+	// navigate(location.state?.return_url || '/', { replace: true }): Bu satır, kullanıcının giriş yaptıktan sonra nereye yönlendirileceğini belirlemek için kullanılıyor. location.state?.return_url ifadesi, mevcut sayfanın location nesnesinin state özelliğindeki return_url değerini alır. Eğer bu değer mevcut değilse veya null ise, varsayılan olarak ana sayfaya ('/') yönlendirilir. navigate fonksiyonu, kullanıcıyı belirtilen URL'ye yönlendirmek için kullanılır ve replace: true seçeneği, tarayıcı geçmişini değiştirmeden yeni URL'ye gitmeyi sağlar.
+
 
 	return (
 		<div className="h-full w-full flex flex-wrap overflow-auto items-center gap-x-8 justify-center">
